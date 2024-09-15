@@ -20,4 +20,23 @@ jobs:
 
             - name: read_file
               run: cat dragon.txt
-        
+
+
+    second_job:
+        runs-on:    ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4
+
+            - name: install 
+              run: sudo apt-get install cowsay -y
+
+            - name: execute command
+              run: cowsay -f dog "hola vaca" >> dog.txt
+
+            - name: first_file
+              run: ls
+
+            - name: read_file
+              run: cat dog.txt
+               
