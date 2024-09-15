@@ -32,11 +32,11 @@ jobs:
               run: sudo apt-get install cowsay -y
 
             - name: execute command
-              run: cowsay -f dog "hola vaca" >> dog.txt
+              run: cowsay -f dragon "hola vaca" >> dragon.txt
 
             - name: first_file
               run: ls
 
             - name: read_file
-              run: cat dog.txt
+              run: cat dragon.txt
                
