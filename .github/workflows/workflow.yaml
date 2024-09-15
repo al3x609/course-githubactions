@@ -25,6 +25,7 @@ jobs:
               uses: actions/upload-artifact@v3
               with:
                 name: artifact_1
+                path: dragon.txt
 
 
     second_job:
