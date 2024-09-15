@@ -8,13 +8,16 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v4
-            - name: welcome message
-              run: echo 'hello'
+
+            - name: install 
+              run: sudo apt-get install cowsay -y
+
+            - name: execute command
+              run: cowsay -f "hola vaca" >> salida.txt
 
             - name: first_file
               run: ls
 
             - name: read_file
-              run: cat README.md
-
+              run: cat salida.txt
         
