@@ -21,21 +21,20 @@ jobs:
             - name: read_file
               run: cat dragon.txt
 
+            - name: first_file_upload
+              uses: actions/upload-artifact@v3
+              with:
+                name: artifact_1
+
 
     second_job:
         runs-on:    ubuntu-latest
+        needs:  first_job
         steps:
-            - name: checkout
-              uses: actions/checkout@v4
-
-            - name: install 
-              run: sudo apt-get install cowsay -y
-
-            - name: execute command
-              run: cowsay -f dragon "hola vaca" >> dragon.txt
-
-            - name: first_file
-              run: ls
+            - name: first_file_download
+              uses: actions/download-artifact@v3
+              with:
+                name: artifact_1
 
             - name: read_file
               run: cat dragon.txt
