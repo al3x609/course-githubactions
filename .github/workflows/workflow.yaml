@@ -19,7 +19,9 @@ jobs:
               run: ls
 
             - name: read_file
-              run: cat dragon.txt
+              run: |
+                cat dragon.txt
+                env
 
             - name: first_file_upload
               uses: actions/upload-artifact@v4
