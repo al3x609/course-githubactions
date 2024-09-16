@@ -12,8 +12,8 @@ jobs:
         steps:
             - name: Echo text
               run: echo "Hello, world!"
-              
+
             - name: running on ${{matrix.os}}
-              run: uname -a
+              run: docker ps -a
 
 
