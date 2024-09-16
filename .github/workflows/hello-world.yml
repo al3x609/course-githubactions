@@ -1,12 +1,19 @@
-name: Hello World
+name: Hello World matriz
 
-on: [push]
+on: [push, workflow_dispatch ]
 
 jobs:
-    hello-job:
-        runs-on: ubuntu-latest
+    deploy:
+        strategy:
+            matrix:
+                os: [ubuntu-latest, ubuntu-20.04, windows-latest]
+                images: [hello-world, alpine]
+        runs-on: ${{matrix.os}}
         steps:
             - name: Echo text
               run: echo "Hello, world!"
+              
+            - name: running on ${{matrix.os}}
+              run: uname -a
 
 
